@@ -1,0 +1,26 @@
+#!/bin/sh
+
+shopt -s globstar
+
+files=../**/*.pyx
+
+for file in $files; do
+sed '/^from pygments.lexer/s/include/Include/' -i $file &&\
+sed '/^class include/s/include/Include/' -i $file &&\
+sed "s/include('/Include('/" -i $file &&\
+sed 's/, include/, Include/' -i $file &&\
+sed 's/include,/Include,/' -i $file &&\
+sed 's/include("/Include("/' -i $file
+
+# some naughty people were using char as variable names, which makes Cython
+#     a sad panda :( some editing still has to be done by hand though
+sed '/^def/s/char,/ch,/' -i $file &&\
+sed '/^ def/s/char,/ch,/' -i $file &&\
+sed '/^def/s/double,/double,/' -i $file &&\
+sed 's/(char,/(ch,/' -i $file &&\
+sed 's/(double,/(dbl,/' -i $file &&\
+sed 's/ char =/ ch =/' -i $file &&\
+sed 's/ char / ch /g' -i $file
+sed 's/(char)/(ch)/g' -i $file
+
+done

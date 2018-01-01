@@ -1,0 +1,9 @@
+#!/bin/sh
+
+shopt -s globstar
+
+for file in ../**/*.py; do
+	mv "$file" "${file%.py}.pyx"
+done
+
+mv ../setup.pyx pygments/setup.py

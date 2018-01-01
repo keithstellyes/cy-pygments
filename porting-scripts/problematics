@@ -1,0 +1,11 @@
+#!/bin/sh
+
+problematic_lexers="erlang.py jvm.py lisp.py ml.py nix.py"
+
+for lexer in $problematic_lexers; do
+    mv ../pygments/lexers/${lexer}x\
+       ../pygments/lexers/${lexer}
+done
+
+mv ../pygments/util.pyx\
+	../pygments/util.py

@@ -99,3 +99,7 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# cython-generated C files
+# we might want to later be more specific with this
+*.c

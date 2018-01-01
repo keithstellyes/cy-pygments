@@ -1,0 +1,6 @@
+coverage
+nose
+pyflakes
+pylint
+tox
+cython
