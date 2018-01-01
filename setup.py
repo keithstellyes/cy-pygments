@@ -49,13 +49,13 @@ else:
 
 setup(
     ext_modules=cythonize('pygments/**/*.pyx'),
-    name = 'Pygments',
+    name = 'Cy-Pygments',
     version = '2.2.0',
     url = 'http://pygments.org/',
     license = 'BSD License',
-    author = 'Georg Brandl',
-    author_email = 'georg@python.org',
-    description = 'Pygments is a syntax highlighting package written in Python.',
+    author = 'Pygments: Georg Brandl / Cy-Python port: Keith Stellyes',
+    author_email = 'georg@python.org / keithastellyes@gmail.com',
+    description = 'Cy-Pygments is a port of Pygments which is a syntax highlighting package written in Python.',
     long_description = __doc__,
     keywords = 'syntax highlighting',
     packages = find_packages(),
